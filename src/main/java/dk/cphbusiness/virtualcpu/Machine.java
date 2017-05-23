@@ -6,12 +6,21 @@ public class Machine {
 
     private Cpu cpu = new Cpu();
     private Memory memory = new Memory();
+    private boolean _HALT = false;
 
     public void load(Program program) {
         int index = 0;
         for (int instr : program) {
             memory.set(index++, instr);
+            
         }
+    }
+    public void init() {
+        while (!_HALT) {
+            tick();
+            print(System.out);
+        }
+
     }
 
     public void tick() {
@@ -103,7 +112,7 @@ public class Machine {
         } 
         //HALT
         else if (instr == 0b0000_1111) {
-            System.out.println("HALT EXECUTION");
+            _HALT = true;
         //HALT CODE
         } 
         //MOV o r
@@ -155,6 +164,7 @@ public class Machine {
             cpu.setA(cpu.getA() * cpu.getB());
             cpu.incIp();
         }
+
     }
 
     public void print(PrintStream out) {
