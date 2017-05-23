@@ -1,13 +1,12 @@
 package dk.cphbusiness.virtualcpu;
 
 
-import java.util.Scanner;
+
 
 public class Main {
   
   public static void main(String[] args) {
-    Scanner scan = new Scanner(System.in);
-    String input = "";
+    
     
     System.out.println("Welcome to the awesome CPU program");
     Program factorial = new Program("01001010", "00010000", "00001100", "11000110", "00010010","00001111","00110010",
@@ -39,28 +38,7 @@ public class Main {
     machine.load(tailFactorial);
     machine.init();
     
-//Factorial TAIL RECURSIVE
-//
-//MOV 1 A
-//PUSH A
-//MOV 5 A
-//PUSH A
-//ALWAYS
-//CALL #8
-//POP A
-//HALT
-//MOV +1 A
-//NZERO
-//JMP #12
-//RTN +1
-//MOV +2 B
-//MUL
-//MOV A +2
-//MOV +1 A
-//DEC
-//MOV A +1
-//ALWAYS
-//JMP #8
+
 
       
     //machine.print(System.out);
